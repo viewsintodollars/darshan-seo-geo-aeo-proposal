@@ -1,782 +1,344 @@
 <!DOCTYPE html>
-<!--
-  Darshan International — SEO, GEO and AEO Transformation Proposal
-  Visual system: Expert Panel "final growth strategy" deck (Sep 2026) — tinted page,
-  navy-weight ink, tiny coloured kicker, one-sentence headline, airy data objects,
-  bold takeaway line. Brand colours and logo are Tempest's own, taken from their Rev9 credentials deck.
-  Tempest tokens + logo: resources/tempest-brand/ (source: Tempest Credentials 2026 Rev9)
-  Source content: ~/Downloads/Darshan SEO GEO AEO Transformation_Proposal.docx (Swapnil)
--->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>SEO, GEO and AEO Transformation — Darshan International</title>
+<title>SEO, GEO and AEO Transformation — Darshan Incense</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+/* Tempest tokens per proposal-system.md §2, corrected 2026-09-21. */
 :root{
-  --bg:#FDFDFD;          /* Tempest page white */
-  --ink:#111111;         /* headings */
-  --red:#BE272B;         /* Tempest primary red */
-  --blue:#00598F;        /* Tempest secondary blue */
-  --amber:#B8702A;       /* tertiary accent */
-  --teal:#00598F;        /* reuse brand blue, no invented greens */
-  --grey:#5B5E66;        /* body copy, Tempest --body */
-  --soft:#9A9A9A;        /* captions, Tempest --faint */
-  --line:#E2E2E2;        /* hairlines, Tempest --line */
-  --panel:#FBEDEC;       /* Tempest --orange-tint */
-  --white:#FFFFFF;
+  --red:#BE272B; --blue:#00598F; --ink:#16181d; --body:#5b6068; --mute:#9aa0a8;
+  --line:#e6e6e8; --surface:#f7f7f8; --warm:#faf6f1; --dark:#232326;
 }
-html,body{height:100%;background:#101114;overflow:hidden;font-family:'Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-#stage{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform-origin:center;background:var(--bg);box-shadow:0 40px 120px rgba(0,0,0,.55)}
-.slide{position:absolute;inset:0;background:var(--bg);color:var(--ink);opacity:0;visibility:hidden;transform:translateY(20px);transition:opacity .4s cubic-bezier(.22,1,.36,1),transform .4s cubic-bezier(.22,1,.36,1),visibility 0s .4s}
+html,body{height:100%;background:#0e0f12;overflow:hidden;font-family:'Poppins',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+#stage{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform-origin:center;background:#fff;box-shadow:0 40px 120px rgba(0,0,0,.55)}
+.slide{position:absolute;inset:0;background:#fff;color:var(--ink);opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity .4s cubic-bezier(.22,1,.36,1),transform .4s cubic-bezier(.22,1,.36,1),visibility 0s .4s}
 .slide.on{opacity:1;visibility:visible;transform:none;transition:opacity .4s cubic-bezier(.22,1,.36,1),transform .4s cubic-bezier(.22,1,.36,1)}
-.inner{position:absolute;inset:0;padding:60px 76px 56px;display:flex;flex-direction:column}
 
-/* furniture */
-.slogo{position:absolute;top:26px;right:76px;height:30px;opacity:1;z-index:2}
-.pageno{position:absolute;bottom:24px;right:76px;font-size:9.5px;letter-spacing:.1em;color:var(--soft);font-weight:500}
+/* WPR furniture: mark top-left, numbered red kicker, page N / TOTAL bottom-right.
+   Every kicker on one baseline. Never vertically centre a content slide. */
+.inner{position:absolute;inset:0;padding:96px 68px 56px}
+.slogo{position:absolute;top:34px;left:68px;height:30px;z-index:3}
+.clogo{position:absolute;top:32px;right:68px;height:34px;z-index:3;opacity:.92}
+.pageno{position:absolute;bottom:26px;right:68px;font-size:11px;letter-spacing:.14em;color:var(--mute);font-weight:500}
+.pageno b{color:var(--mute);font-weight:500}
 
-/* type system */
-.kicker{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--red);margin-bottom:11px}
-h2{font-size:33px;line-height:1.2;font-weight:700;letter-spacing:-.021em;margin-bottom:32px;max-width:1000px}
-h2 em{font-style:normal;color:var(--red)}
-.sub{font-size:13.5px;line-height:1.6;color:var(--grey);max-width:860px;margin:-16px 0 24px}
-.take{margin-top:auto;padding-top:34px;font-size:16px;font-weight:700;line-height:1.45;letter-spacing:-.012em;max-width:1010px}
-.take em{font-style:normal;color:var(--red)}
-.note{margin-top:auto;padding-top:22px;font-size:11px;color:var(--soft);line-height:1.5;max-width:940px}
-/* when a slide is short, let the last block sit at the base instead of floating mid-air */
-.take.base,.note.base{margin-top:auto;padding-top:20px}
-.spacer{flex:1 1 auto;min-height:0}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+h1{font-size:60px;font-weight:800;letter-spacing:-.032em;line-height:1.05}
+h1 em,h2 em,.pq em,.closeline em{font-style:normal;color:var(--red)}
+h2{font-size:37px;font-weight:800;letter-spacing:-.028em;line-height:1.16;max-width:1120px}
+h2.two{font-size:34px}
+.lede{margin-top:16px;font-size:16px;line-height:1.66;color:var(--body);max-width:1000px;font-weight:400}
+.lede strong{color:var(--ink);font-weight:600}
 
-/* title slide */
-.title{position:absolute;inset:0;padding:0 76px;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:60px}
-.title h1{font-size:48px;line-height:1.14;font-weight:800;letter-spacing:-.032em;margin-bottom:22px}
-.title h1 em{font-style:normal;color:var(--red)}
-.title .tsub{font-size:15px;line-height:1.62;color:var(--grey);max-width:520px}
-.trule{height:1px;background:var(--line);margin:30px 0 18px;max-width:520px}
-.tchips{display:flex;gap:22px;font-size:11.5px;color:var(--grey);font-weight:500}
-.tfoot{position:absolute;bottom:50px;left:76px;font-size:10.5px;color:var(--soft);letter-spacing:.02em}
-.thint{position:absolute;bottom:50px;right:76px;font-size:10.5px;color:var(--soft);letter-spacing:.04em}
-.tlogo{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
-.tlogo img{height:74px}
-.tlogo span{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);font-weight:600}
+/* red left-rule pull-quote, closes most content slides */
+.pq{position:absolute;left:68px;right:68px;bottom:58px;border-left:3px solid var(--red);padding-left:18px;font-size:16px;font-weight:700;line-height:1.5;letter-spacing:-.015em}
+.pq.b{border-left-color:var(--blue)}
+.cap{font-size:12px;color:var(--mute);font-weight:500;margin-top:10px}
 
-/* numbered signal rows (EP p4) */
-.rows{display:flex;flex-direction:column}
-.row{display:grid;grid-template-columns:58px 1.05fr 1.5fr;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line)}
-.row:first-child{padding-top:4px}
-.rn{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1}
-.rn.c1{color:var(--red)}.rn.c2{color:var(--blue)}.rn.c3{color:var(--ink)}.rn.c4{color:var(--red)}
-.row h3{font-size:15.5px;font-weight:700;letter-spacing:-.012em;line-height:1.35}
-.row p{font-size:13px;line-height:1.55;color:var(--grey)}
+/* split: left copy, right evidence */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:22px;align-items:start}
+.split.wide{grid-template-columns:1.15fr 1fr}
+.split.ev{grid-template-columns:1fr 1.1fr}
+.shot{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--warm);
+  height:352px;display:flex;align-items:center;justify-content:center;padding:0;background:#f7f1e8}
+.shot img{height:100%;width:auto;max-width:100%;object-fit:contain;display:block}
+.shot.amz{height:auto;background:#fff;padding:0;align-items:stretch}
+.shot.amz img{width:100%;height:auto;max-height:none;object-fit:contain}
 
-/* stat band (EP p9 / p24) */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-bottom:6px}
-.stats.s3{grid-template-columns:repeat(3,1fr)}
-.stat b{display:block;font-size:40px;font-weight:800;letter-spacing:-.028em;line-height:1.05;margin-bottom:7px}
-.stat.c1 b{color:var(--red)}.stat.c2 b{color:var(--red)}.stat.c3 b{color:var(--blue)}.stat.c4 b{color:var(--ink)}
-.stat span{font-size:12.5px;color:var(--grey);line-height:1.45;display:block;font-weight:500}
+/* labelled fact rows with a coloured rule above, WPR 03 */
+.facts{margin-top:18px}
+.fact{padding:11px 0 10px;border-top:2px solid var(--red)}
+.fact:nth-child(2){border-top-color:var(--blue)}
+.fact:nth-child(3){border-top-color:var(--red)}
+.fact:nth-child(4){border-top-color:var(--blue)}
+.fact h4{font-size:15px;font-weight:700;letter-spacing:-.015em;margin-bottom:5px}
+.fact p{font-size:13px;line-height:1.5;color:var(--body)}
 
-/* stepper with coloured underlines (EP p10 / p20 / p26) */
-.steps{display:grid;gap:20px}
-.steps.s5{grid-template-columns:repeat(5,1fr)}
-.steps.s4{grid-template-columns:repeat(4,1fr)}
-.steps.s3{grid-template-columns:repeat(3,1fr)}
-.step .sn{font-size:11.5px;font-weight:700;color:var(--soft);letter-spacing:.04em;line-height:1.3}
-.step .sl{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin:5px 0 9px}
-.step.c1 .sl{color:var(--red)}.step.c2 .sl{color:var(--blue)}.step.c3 .sl{color:var(--ink)}.step.c4 .sl{color:var(--red)}.step.c5 .sl{color:var(--blue)}
-.step p{font-size:12.5px;line-height:1.55;color:var(--grey);padding-bottom:14px}
-.step .bar{height:2.5px;border-radius:2px;background:var(--red)}
-.step.c2 .bar{background:var(--blue)}.step.c3 .bar{background:var(--ink)}.step.c4 .bar{background:var(--red)}.step.c5 .bar{background:var(--blue)}
+/* metric tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.tile{border:1px solid var(--line);border-radius:14px;padding:16px 20px 18px;position:relative;display:flex;flex-direction:column}
+.tile .ic{height:88px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.tile .ic img{height:100%;width:auto;max-width:100%;object-fit:contain;display:block}
+.tile::before{content:'';position:absolute;top:-1px;left:24px;width:34px;height:3px;background:var(--line);border-radius:0 0 3px 3px}
+.tile.hot::before{background:var(--red)}
+.tile .v{font-size:31px;font-weight:800;letter-spacing:-.035em;line-height:1;color:var(--mute)}
+.tile.hot .v{color:var(--red)}
+.tile .k{margin-top:9px;font-size:13.5px;font-weight:700}
+.tile .s{margin-top:4px;font-size:12px;color:var(--body);font-weight:400}
 
-/* soft cards (EP p5 / p7 / p16) */
-.cards{display:grid;gap:18px}
+/* card grid, each with a generated render on a warm panel */
+.cards{display:grid;gap:18px;margin-top:26px}
+.cards.c2{grid-template-columns:repeat(2,1fr)}
 .cards.c3{grid-template-columns:repeat(3,1fr)}
 .cards.c4{grid-template-columns:repeat(4,1fr)}
-.cd{background:var(--white);border-radius:10px;padding:20px 20px 18px;display:flex;flex-direction:column}
-.cd.fill{background:var(--panel)}
-.cd .cl{font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
-.cd.a1 .cl{color:var(--red)}.cd.a2 .cl{color:var(--blue)}.cd.a3 .cl{color:var(--ink)}
-.cd h3{font-size:17px;font-weight:700;letter-spacing:-.015em;line-height:1.3;margin-bottom:9px}
-.cd p{font-size:12.5px;line-height:1.55;color:var(--grey)}
-.cd .cfoot{margin-top:auto;padding-top:13px;border-top:1px solid var(--line);font-size:11px;color:var(--ink);font-weight:600;line-height:1.4}
+.cd{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.cd .rend{background:#f7f1e8;display:flex;align-items:center;justify-content:center;padding:0}
+/* renders are 1:1; the box is square so contain never letterboxes or crops */
+.cd .rend{height:196px}
+.cd .rend img{height:100%;width:auto;max-width:100%;object-fit:contain;display:block}
+.cd .bd{padding:18px 20px 20px}
+.cd .cl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.cd .cl.b{color:var(--blue)}
+.cd h3{font-size:16.5px;font-weight:700;letter-spacing:-.018em;line-height:1.28;margin-bottom:7px}
+.cd p{font-size:13px;line-height:1.55;color:var(--body)}
 
-/* clean data table (EP p6 / p15 / p21) */
-.tbl{width:100%;border-collapse:collapse}
-.grow{flex:1 1 auto;display:flex;flex-direction:column;justify-content:space-evenly;min-height:0}
-.tbl th{font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--soft);text-align:left;padding:0 16px 9px 0;border-bottom:1px solid var(--line)}
-.tbl td{font-size:12.5px;line-height:1.55;color:var(--grey);padding:13.5px 16px 13.5px 0;border-bottom:1px solid var(--line);vertical-align:top}
-.tbl td.k{color:var(--ink);font-weight:600;font-size:13px;width:20%}
-.tbl td:last-child{padding-right:0}
-.tbl.sm td{font-size:11.8px;padding:11.5px 14px 11.5px 0}
-.tbl.sm td.k{font-size:12.2px}
-.tbl .pill{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:99px;color:#fff;white-space:nowrap}
-.pill.crit{background:var(--red)}
-.pill.high{background:var(--ink)}
-.tbl td.num{color:var(--red);font-weight:700;font-size:13px}
+/* persona card: real photography over the copy */
+.pcard{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.pcard .ph{width:100%;aspect-ratio:16/7;overflow:hidden;background:var(--surface)}
+.pcard .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.pcard .bd{padding:16px 20px 18px}
+.pcard .cl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:9px}
+.pcard .cl.b{color:var(--blue)}
+.pcard h3{font-size:17px;font-weight:700;letter-spacing:-.02em;line-height:1.24;margin-bottom:9px}
+.pcard ul{list-style:none}
+.pcard li{font-size:12.5px;line-height:1.45;color:var(--body);padding:3px 0 3px 16px;position:relative}
+.pcard li::before{content:'';position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--red)}
+.pcard.b li::before{background:var(--blue)}
+.pcard li strong{color:var(--ink);font-weight:600}
 
-/* flow strip (EP p22) */
-.flow{display:grid;gap:0;grid-template-columns:repeat(5,1fr);align-items:start}
-.flow.f4{grid-template-columns:repeat(4,1fr)}
-.fs{padding-right:22px;position:relative}
-.fs:not(:last-child)::after{content:'›';position:absolute;right:9px;top:26px;color:var(--soft);font-size:15px}
-.fs .fn{font-size:10.5px;font-weight:700;color:var(--soft)}
-.fs .ft{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin:5px 0 8px;color:var(--red)}
-.fs.c2 .ft{color:var(--blue)}.fs.c3 .ft{color:var(--ink)}.fs.c4 .ft{color:var(--red)}.fs.c5 .ft{color:var(--blue)}
-.fs p{font-size:12.5px;line-height:1.55;color:var(--grey);padding-bottom:13px}
-.fs .fb{height:2.5px;border-radius:2px;background:var(--red);margin-right:22px}
-.fs.c2 .fb{background:var(--blue)}.fs.c3 .fb{background:var(--ink)}.fs.c4 .fb{background:var(--red)}.fs.c5 .fb{background:var(--blue)}
+/* a full-width line-art band, sized to the art's own ratio so it never crops */
+.band{margin-top:20px}
+.band img{width:100%;height:auto;display:block}
 
-/* callout bar (EP "Decision rule") */
-.callout{display:grid;grid-template-columns:140px 1fr;gap:22px;align-items:start;background:var(--white);border-radius:9px;padding:18px 22px;margin-top:26px}
-.callout.tint{background:var(--panel)}
-.callout .cll{font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--red);padding-top:2px}
-.callout p{font-size:13.5px;line-height:1.55;font-weight:600;color:var(--ink)}
-.callout.tint p{font-weight:700}
+/* icon sitting above a table column head or a panel */
+.iconrow{display:grid;gap:18px;margin-top:20px}
+.iconrow .ii{height:74px;display:flex;align-items:center;justify-content:center}
+.iconrow .ii img{height:100%;width:auto;max-width:100%;object-fit:contain;display:block}
 
-/* two-column lists */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:34px}
-.three{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-.lst{list-style:none}
-.lst li{font-size:12.5px;line-height:1.55;color:var(--grey);padding:10px 0 10px 18px;position:relative;border-bottom:1px solid var(--line)}
-.lst li::before{content:'';position:absolute;left:0;top:13px;width:5px;height:5px;border-radius:50%;background:var(--red)}
-.lst.tick li::before{content:'✓';background:none;left:0;top:5px;width:auto;height:auto;color:var(--red);font-weight:800;font-size:11px}
-.lst.cross li::before{content:'✕';background:none;left:0;top:5px;width:auto;height:auto;color:var(--soft);font-weight:700;font-size:10px}
-.colh{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--soft);margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
-.colh.r{border-bottom-color:var(--red)}
-.colh.a{border-bottom-color:var(--blue)}
-.colh.t{border-bottom-color:var(--red)}
+/* plain panel card, no render */
+.pnl{border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+.pnl.warm{background:var(--surface)}
+.pnl .cl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.pnl .cl.b{color:var(--blue)}
+.pnl h3{font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.24;margin-bottom:12px}
+.pnl .mi{height:56px;display:flex;align-items:center;justify-content:flex-start;margin-bottom:12px}
+.pnl .mi img{height:100%;width:auto;object-fit:contain;display:block}
+.pnl ul{list-style:none}
+.pnl li{font-size:13.5px;line-height:1.5;color:var(--body);padding:5px 0 5px 16px;position:relative}
+.pnl li::before{content:'';position:absolute;left:0;top:12px;width:5px;height:5px;border-radius:50%;background:var(--red)}
+.pnl.b li::before{background:var(--blue)}
+.pnl li strong{color:var(--ink);font-weight:600}
 
-/* gantt (roadmap) */
-.gantt{width:100%;border-collapse:collapse;margin-bottom:4px}
-.gantt th{font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);padding:0 3px 10px;text-align:center}
-.gantt th:first-child{text-align:left;width:212px}
-.gantt th:last-child{text-align:right;width:104px}
-.gantt td{padding:6px 3px}
-.gantt td:first-child{font-size:12.5px;font-weight:600;color:var(--ink);padding-right:14px}
-.gantt td:last-child{font-size:11.5px;color:var(--soft);text-align:right;font-weight:500;white-space:nowrap}
-.cell{height:15px;border-radius:3px;background:var(--panel)}
-.cell.on{background:var(--red)}
-.cell.on2{background:var(--ink)}
-.cell.on3{background:var(--blue)}
+/* numbered read columns, WPR 14 */
+.reads{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:30px}
+.rd{border-top:2px solid var(--red);padding-top:14px}
+.rd:nth-child(2){border-top-color:var(--blue)}
+.rd .n{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:9px}
+.rd p{font-size:14.5px;font-weight:700;line-height:1.42;letter-spacing:-.015em}
 
-/* close */
-.slide.dark{background:#1A1A1A;color:#fff}
-.closewrap{position:absolute;inset:0;padding:0 76px 8px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:26px}
-.closewrap h2{font-size:46px;font-weight:800;letter-spacing:-.032em;line-height:1.14;color:#fff;margin:0;max-width:820px}
-.closewrap h2 em{font-style:normal;color:var(--red)}
-.cfoot{font-size:12.5px;color:#A79FA1;line-height:1.75}
-.cfoot b{color:#fff;font-weight:600}
-.closewrap img{height:58px;width:auto;align-self:flex-start;margin-bottom:10px}
+/* borderless table */
+table{width:100%;border-collapse:collapse;margin-top:22px}
+thead th{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);text-align:left;padding:0 14px 11px 0;border-bottom:1px solid var(--line)}
+tbody td{font-size:13.5px;line-height:1.5;color:var(--body);padding:13px 14px 13px 0;border-bottom:1px solid var(--line);vertical-align:top}
+tbody td:first-child{color:var(--ink);font-weight:700}
+table.t2 tbody td{padding:9.5px 14px 9.5px 0;font-size:13px}
+table.t3 tbody td{padding:7px 12px 7px 0;font-size:12.5px}
+table.t3 thead th{font-size:9.5px;padding-bottom:8px}
+td.dot{width:44px;color:var(--red);font-size:14px;font-weight:700}
+/* row label with its own icon, sized to the icon's real ratio so it never distorts */
+td.ric{display:flex;align-items:center;gap:12px}
+td.ric img{max-height:30px;max-width:34px;width:auto;height:auto;object-fit:contain;flex-shrink:0;display:block;margin:0 auto}
+td.ric .ib{width:34px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+td.lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);width:150px;padding-top:15px}
+td.pl{color:var(--body);font-weight:400}
 
-/* nav */
-#bar{position:absolute;top:0;left:0;height:2.5px;background:var(--red);width:0;transition:width .4s cubic-bezier(.22,1,.36,1);z-index:5}
-#nav{position:absolute;inset:0;pointer-events:none;z-index:5;transition:opacity .3s ease}
-#nav.hide{opacity:0}
-#nav button{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--ink);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s ease,background .15s ease,color .15s ease}
-#nav #prev{left:16px}#nav #next{right:16px}
-#nav button:hover{background:var(--red);border-color:var(--red);color:#fff}
-#nav button:active{transform:translateY(-50%) scale(.92)}
-#nav button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+/* segmented strip, last cell solid as destination */
+.strip{display:flex;margin-top:26px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.sg{flex:1;padding:16px 18px;border-right:1px solid var(--line)}
+.sg:last-child{border-right:none;background:var(--red)}
+.sg .sn{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:7px}
+.sg:last-child .sn{color:rgba(255,255,255,.72)}
+.sg .sw{font-size:14.5px;font-weight:700;letter-spacing:-.018em;line-height:1.25}
+.sg:last-child .sw{color:#fff}
+
+/* full-width generated diagram */
+.diagram{margin-top:22px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:16px 20px}
+.diagram img{width:100%;display:block}
+
+/* cover */
+.cover .inner{display:flex;flex-direction:column;justify-content:center;padding:58px 68px 150px}
+/* Standing rule: on a proposal cover BOTH marks are large and equally weighted,
+   contractor left, client right, sharing one baseline. Never the small furniture size. */
+.covlogos{position:absolute;top:56px;left:68px;right:68px;display:flex;justify-content:space-between;align-items:center;z-index:4}
+.covlogos .cl-l{height:62px;display:block}
+.covlogos .cl-r{height:72px;display:block}
+.cover .bracket{position:relative;padding-left:32px}
+.cover .bracket::before{content:'';position:absolute;left:0;top:-4px;width:38px;height:38px;border-left:4px solid var(--blue);border-top:4px solid var(--blue)}
+.cover .bracket::after{content:'';position:absolute;left:0;bottom:-4px;width:38px;height:38px;border-left:4px solid var(--blue);border-bottom:4px solid var(--blue)}
+.cover .sub{margin-top:30px;font-size:17px;color:var(--body);max-width:900px;line-height:1.6}
+.covfoot{position:absolute;bottom:44px;left:68px;right:68px;display:flex;justify-content:space-between;align-items:flex-end;font-size:13px;color:var(--body)}
+.covfoot strong{color:var(--ink);font-weight:700}
+.covfoot .r{text-align:right;font-size:11.5px;color:var(--mute);line-height:1.7}
+
+/* dark slides */
+.slide.dk{background:var(--dark);color:#fff}
+.slide.dk .kicker{color:var(--red)}
+.slide.dk h2{color:#fff}
+.darkcard{background:var(--dark);border-radius:18px;padding:40px 48px;margin-top:26px}
+.darkcard .cl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:22px}
+.darkcard ul{list-style:none;columns:2;column-gap:44px}
+.darkcard li{font-size:16.5px;font-weight:600;color:#fff;padding:9px 0 9px 22px;position:relative;break-inside:avoid}
+.darkcard li::before{content:'';position:absolute;left:0;top:18px;width:7px;height:7px;border-radius:50%;background:var(--red)}
+.closewrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:28px}
+.logocard{background:#fff;border-radius:12px;padding:12px 20px}
+.logocard img{height:28px;display:block}
+.closeline{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1.16;color:#fff}
+.closefoot{font-size:13.5px;color:#9a9ea6}
+.closefoot b{color:var(--red);font-weight:700}
+
+
+/* ---- pptx-format components (Swapnil's deliverable/qty/remarks layout) ---- */
+.sub{margin-top:14px;font-size:16px;line-height:1.6;color:var(--body);max-width:1060px}
+.sub strong{color:var(--ink);font-weight:600}
+.notebar{position:absolute;left:68px;right:68px;bottom:56px;font-size:12.5px;line-height:1.55;
+  color:var(--body);border-left:3px solid var(--blue);padding-left:16px}
+.notebar b{color:var(--ink);font-weight:700}
+
+/* deliverable table: 3 columns, hairline rules, qty column in navy */
+table.dl{width:100%;border-collapse:collapse;margin-top:22px}
+table.dl thead th{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--mute);text-align:left;padding:0 16px 11px 0;border-bottom:1px solid var(--line)}
+table.dl tbody td{font-size:13.5px;line-height:1.5;color:var(--body);padding:11px 16px 11px 0;
+  border-bottom:1px solid var(--line);vertical-align:top}
+table.dl tbody td:first-child{color:var(--ink);font-weight:700;width:27%}
+table.dl tbody td.qty{color:var(--blue);font-weight:700;width:19%;white-space:nowrap}
+table.dl tbody td.qty.hot{color:var(--red)}
+table.dl.tight tbody td{padding:8.5px 16px 8.5px 0;font-size:13px}
+table.dl.xt tbody td{padding:6px 16px 6px 0;font-size:12.5px;line-height:1.45}
+table.dl.xt thead th{padding-bottom:9px}
+.slide.packed h2{font-size:33px}
+.slide.packed .sub{margin-top:11px;font-size:15px}
+
+/* scope boundary: two columns, red ticks vs grey crosses */
+.bounds{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:26px}
+.bx h3{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);margin-bottom:16px;padding-bottom:11px;border-bottom:2px solid var(--red)}
+.bx.out h3{color:var(--mute);border-bottom-color:var(--line)}
+.bx ul{list-style:none}
+.bx li{font-size:13.5px;line-height:1.5;color:var(--body);padding:7px 0 7px 26px;position:relative}
+.bx li::before{content:'';position:absolute;left:2px;top:12px;width:9px;height:5px;
+  border-left:2px solid var(--red);border-bottom:2px solid var(--red);transform:rotate(-45deg)}
+.bx.out li::before{content:'';left:3px;top:13px;width:9px;height:9px;border:none;
+  background:linear-gradient(currentColor,currentColor),linear-gradient(currentColor,currentColor);
+  background-size:9px 2px,2px 9px;background-position:center,center;background-repeat:no-repeat;
+  color:#c9ccd2;transform:rotate(45deg)}
+.bx li strong{color:var(--ink);font-weight:600}
+
+/* nav in the side gutters */
+#bar{position:absolute;top:0;left:0;height:3px;background:var(--red);width:0;transition:width .4s cubic-bezier(.22,1,.36,1);z-index:5}
+#nav button{position:fixed;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .15s ease,opacity .2s ease}
+#nav button:hover{background:var(--red);border-color:var(--red)}
+#nav button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+#prev{left:26px}#next{right:26px}
+#nav.hide button{opacity:0;pointer-events:none}
+@media (max-width:900px){#prev{left:8px}#next{right:8px}}
 </style>
 </head>
 <body>
 <div id="stage">
-
-<!-- 01 TITLE -->
-<section class="slide" data-i="0">
-  <div class="title">
-    <div>
-      <div class="kicker">Darshan International</div>
-      <h1>Organic discovery,<br>rebuilt as <em>one system.</em></h1>
-      <div class="tsub">SEO earns the ranking. AEO wins the direct answer. GEO makes Darshan a source that generative engines will cite. Three views of one discovery system, not three campaigns.</div>
-      <div class="trule"></div>
-      <div class="tchips"><span>Audit</span><span>Architecture</span><span>Content</span><span>Measurement</span></div>
-    </div>
-    <div class="tlogo">
-      <img src="assets/tempest_logo_red.png" alt="Tempest">
-    </div>
-  </div>
-  <div class="tfoot">Client proposal · 21 September 2026</div>
-  <div class="thint">→ navigate · F fullscreen</div>
-</section>
-
-<!-- 02 RECOMMENDATION -->
-<section class="slide" data-i="1">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
+<div id="bar"></div>
+<!-- 01 scope deliverables -->
+<section class="slide packed on">
+  <img class="slogo" src="assets/tempest.png" alt="Tempest">
+  <img class="clogo" src="assets/darshan.png" alt="Darshan Incense">
   <div class="inner">
-    <div class="kicker">Executive recommendation</div>
-    <h2>Three views of the same discovery system</h2>
-    <div class="rows">
-      <div class="row"><div class="rn c1">01</div><h3>SEO indexes and ranks</h3><p>Technical access makes the site crawlable, so the pages customers search for can actually be found and ranked.</p></div>
-      <div class="row"><div class="rn c2">02</div><h3>AEO answers and qualifies</h3><p>Structured product and educational content makes Darshan the clearest source for a direct answer, then carries that reader onward.</p></div>
-      <div class="row"><div class="rn c3">03</div><h3>GEO earns the citation</h3><p>Consistent brand evidence gives Google, Gemini and ChatGPT enough confidence to cite or recommend the brand by name.</p></div>
-    </div>
-    <div class="callout">
-      <div class="cll">Why it holds</div>
-      <p>Google states its generative features run on core Search ranking and quality systems, so the programme prioritises durable search quality rather than short-lived AI tactics.</p>
-    </div>
-    <div class="take">Technical access, then meaning, then evidence, then experience. <em>Each layer only works if the one before it is in place.</em></div>
-  </div>
-  <div class="pageno">02</div>
-</section>
-
-<!-- 03 DISCOVERY MOMENTS -->
-<section class="slide" data-i="2">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Customer fit</div>
-    <h2>Every discovery moment needs its own page</h2>
-    <table class="tbl">
-      <thead><tr><th style="width:20%">Discovery moment</th><th style="width:42%">Darshan should appear with</th><th>Business action</th></tr></thead>
+    <div class="kicker">SEO, GEO &amp; AEO &middot; Scope of Deliverables</div>
+    <h2>One discovery system across search, answers and AI.</h2>
+    <table class="dl xt">
+      <thead><tr><th>Deliverable</th><th>Qty / Spec</th><th>Remarks</th></tr></thead>
       <tbody>
-        <tr><td class="k">Product search</td><td>A relevant category or product page</td><td>Browse or purchase</td></tr>
-        <tr><td class="k">Question search</td><td>A useful guide or a concise answer</td><td>Learn, then enter a product journey</td></tr>
-        <tr><td class="k">Brand verification</td><td>Consistent company and product evidence</td><td>Trust the brand or contact Darshan</td></tr>
-        <tr><td class="k">AI recommendation</td><td>Citable product facts and third party corroboration</td><td>Visit the cited page or compare products</td></tr>
-        <tr><td class="k">Local or trade intent</td><td>Verified business information and a distributor path</td><td>Call, enquire or submit a lead</td></tr>
+        <tr><td>Discovery &amp; technical audit</td><td class="qty">1</td><td>Full crawl, index coverage, Search Console, analytics and backlink baseline</td></tr>
+        <tr><td>Crawl &amp; index repair</td><td class="qty">Full site</td><td>robots.txt, XML sitemaps, canonicals, status codes and redirect chains</td></tr>
+        <tr><td>Site architecture &amp; URLs</td><td class="qty">8 page types</td><td>Category, collection, product family, guide, comparison, brand and trade routes</td></tr>
+        <tr><td>Metadata &amp; on page system</td><td class="qty">100+ pages</td><td>Unique titles, descriptions, headings and internal linking per template</td></tr>
+        <tr><td>Structured data</td><td class="qty">Per template</td><td>Product, Offer, Breadcrumb and organisation markup matching visible content</td></tr>
+        <tr><td>Answer content (AEO)</td><td class="qty">Guides + FAQs</td><td>Comparison, selection, safety and provenance answers with a conversion path</td></tr>
+        <tr><td>Generative visibility (GEO)</td><td class="qty">Full programme</td><td>Entity clarity, citable facts, first party evidence and crawler policy</td></tr>
+        <tr><td>Entity &amp; external evidence</td><td class="qty">1 audit + fixes</td><td>Business profile, retailer listings, social profiles and citation consistency</td></tr>
+        <tr><td>Channel configuration</td><td class="qty">5 surfaces</td><td>Google, Gemini, ChatGPT search, Bing and Copilot, other answer tools</td></tr>
+        <tr><td>Measurement framework</td><td class="qty">1 dashboard</td><td>Technical, search, AI citation, engagement and commercial reporting</td></tr>
+        <tr><td>Training &amp; launch support</td><td class="qty">1</td><td>Acceptance testing, team training, launch and post launch backlog</td></tr>
+        <tr><td>Ongoing content production</td><td class="qty hot">On request</td><td>Monthly guide and answer content beyond the launch set</td></tr>
       </tbody>
     </table>
-    <div class="take">One preferred page per moment. <em>If two pages compete for the same intent, both lose.</em></div>
-    <div class="note">Audit basis: public website review completed 21 September 2026. Search Console, analytics, Merchant Center, server logs and backlink data require access during discovery.</div>
+    <div class="notebar"><b>Audit basis: public website review completed 21 September 2026.</b> robots.txt and sitemap.xml both returned 404, sampled pages shared one title and carried empty meta descriptions.</div>
   </div>
-  <div class="pageno">03</div>
+  <div class="pageno">01 / 03</div>
 </section>
 
-<!-- 04 AUDIT HEADLINE -->
-<section class="slide" data-i="3">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
+<!-- 02 scope boundaries -->
+<section class="slide">
+  <img class="slogo" src="assets/tempest.png" alt="Tempest">
+  <img class="clogo" src="assets/darshan.png" alt="Darshan Incense">
   <div class="inner">
-    <div class="kicker">Current website audit</div>
-    <h2>The site says useful things. Search engines cannot reliably read them.</h2>
-    <div class="stats">
-      <div class="stat c1"><b>404</b><span>robots.txt returned not found, so no crawl policy is declared to any engine</span></div>
-      <div class="stat c2"><b>404</b><span>sitemap.xml returned not found, so no preferred URL inventory is submitted</span></div>
-      <div class="stat c3"><b>Empty</b><span>Meta descriptions sampled, leaving engines to construct the snippet</span></div>
-      <div class="stat c4"><b>538 KB</b><span>Homepage response before assets, carrying a full catalogue payload</span></div>
-    </div>
-    <div class="callout tint" style="margin-top:26px">
-      <div class="cll">The pattern</div>
-      <p>Every finding is a missing signal rather than a wrong one. Nothing has to be undone, which is why the foundation can be repaired inside the first four weeks.</p>
-    </div>
-    <div class="take">Homepage, About and a sampled product page all carried the title <em>Darshan International</em>, so the site's own pages compete with each other.</div>
-  </div>
-  <div class="pageno">04</div>
-</section>
-
-<!-- 05 AUDIT TABLE -->
-<section class="slide" data-i="4">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Audit detail</div>
-    <h2>What is broken, and what it costs</h2>
-    <table class="tbl sm">
-      <thead><tr><th style="width:15%">Area</th><th style="width:32%">Observed condition</th><th style="width:38%">Impact</th><th>Priority</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Crawl control</td><td>robots.txt returned 404 during the review</td><td>No declared crawl policy or sitemap location, including for AI crawlers</td><td><span class="pill crit">Critical</span></td></tr>
-        <tr><td class="k">Discovery file</td><td>sitemap.xml returned 404 during the review</td><td>Engines lack a submitted inventory of preferred URLs and update dates</td><td><span class="pill crit">Critical</span></td></tr>
-        <tr><td class="k">Page identity</td><td>Homepage, About and product shared one title</td><td>Pages compete with weakly differentiated titles</td><td><span class="pill high">High</span></td></tr>
-        <tr><td class="k">Search snippets</td><td>Sampled pages carried an empty meta description</td><td>Engines build snippets with no preferred summary</td><td><span class="pill high">High</span></td></tr>
-        <tr><td class="k">Canonical control</td><td>Canonical tags not observed in sampled HTML</td><td>Parameter URLs and duplicates may dilute page signals</td><td><span class="pill high">High</span></td></tr>
-        <tr><td class="k">Structured data</td><td>JSON-LD not observed in sampled HTML</td><td>Products and business details are harder to interpret</td><td><span class="pill high">High</span></td></tr>
-        <tr><td class="k">URL design</td><td>Product URLs use numeric parameters such as <span style="color:var(--ink);font-weight:600">?id=365</span></td><td>URLs do not describe the product and need careful migration rules</td><td><span class="pill high">High</span></td></tr>
-      </tbody>
-    </table>
-    <div class="take">Fix page identity and index control first. <em>More content on a site engines cannot read is wasted production.</em></div>
-  </div>
-  <div class="pageno">05</div>
-</section>
-
-<!-- 06 DISCOVERY GAPS -->
-<section class="slide" data-i="5">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Evidence boundary</div>
-    <h2>What a public review cannot tell us yet</h2>
-    <table class="tbl sm">
-      <thead><tr><th style="width:17%">Theme</th><th style="width:44%">Finding from the public review</th><th>Required validation during discovery</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Indexation</td><td>Results expose the home page, About, product pages and older catalogue URLs. Coverage and exclusions are unknown.</td><td>Export Search Console pages, sitemaps, crawl stats and manual actions</td></tr>
-        <tr><td class="k">Duplicate inventory</td><td>Homepage markup links to very many product parameter URLs and repeats names across weights and formats.</td><td>Full crawl, then cluster duplicates by title, canonical and product family</td></tr>
-        <tr><td class="k">Architecture</td><td>Domestic and international discovery is visible, but URL conventions are not descriptive.</td><td>Map collections, product families, variants, markets and trade journeys</td></tr>
-        <tr><td class="k">On page content</td><td>Product detail exists, but sampled pages lack unique titles and descriptions.</td><td>Score priority URLs for title, intent match, uniqueness, media and links</td></tr>
-        <tr><td class="k">Brand evidence</td><td>The site states a 1987 origin, 200 plus fragrances and 30 plus countries.</td><td>Confirm approved evidence, legal names, certifications and claim owners</td></tr>
-        <tr><td class="k">External authority</td><td>Social profiles are linked, but backlink and retailer consistency were unavailable.</td><td>Audit referring domains, brand mentions and citation consistency</td></tr>
-        <tr><td class="k">Measurement</td><td>No public review confirms analytics, conversions or AI referral reporting.</td><td>Review account access, event design, attribution and reporting history</td></tr>
-      </tbody>
-    </table>
-    <div class="note">This is a public-surface audit, not a substitute for account access. Anything depending on index coverage, traffic, links or crawl logs stays an open discovery item, which is exactly what the two week phase resolves.</div>
-  </div>
-  <div class="pageno">06</div>
-</section>
-
-<!-- 07 ARCHITECTURE -->
-<section class="slide" data-i="6">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Target architecture</div>
-    <h2>Eight page types cover every kind of demand</h2>
-    <table class="tbl sm">
-      <thead><tr><th style="width:17%">Page type</th><th style="width:40%">Purpose</th><th>Examples for Darshan</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Homepage</td><td>Establish the brand entity and route major audiences</td><td>Consumers, international buyers, distributors</td></tr>
-        <tr><td class="k">Category</td><td>Match broad commercial demand and organise products</td><td>Sticks, cones, dhoop, bambooless, sambrani, gifting</td></tr>
-        <tr><td class="k">Collection</td><td>Serve fragrance, occasion, format or audience intent</td><td>Sandalwood, meditation, festive gifting, long lasting</td></tr>
-        <tr><td class="k">Product family</td><td>Explain one product story and group sellable variants</td><td>Black Stone, with weight and format variants</td></tr>
-        <tr><td class="k">Guide</td><td>Answer a real question with expert context</td><td>How to choose by fragrance family, how to use safely</td></tr>
-        <tr><td class="k">Comparison</td><td>Help users evaluate meaningful alternatives</td><td>Sticks compared with cones and dhoop</td></tr>
-        <tr><td class="k">Brand evidence</td><td>Verify the organisation, history and standards</td><td>About, manufacturing, quality sourcing, global presence</td></tr>
-        <tr><td class="k">Trade</td><td>Capture distributor, bulk and export demand</td><td>Case packs, markets, distributor enquiry process</td></tr>
-      </tbody>
-    </table>
-    <div class="take">Demand routes to a page system, the page system feeds every search surface, <em>and the outcome is a qualified visit or an enquiry.</em></div>
-  </div>
-  <div class="pageno">07</div>
-</section>
-
-<!-- 08 TECHNICAL -->
-<section class="slide" data-i="7">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Technical foundation</div>
-    <h2>Ten controls, each with its own acceptance test</h2>
-    <table class="tbl sm">
-      <thead><tr><th style="width:16%">Control</th><th style="width:44%">Required implementation</th><th>Acceptance evidence</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Preferred domain</td><td>Choose HTTPS and one host convention, then redirect all alternatives</td><td>One hop 301s, no conflicting internal links</td></tr>
-        <tr><td class="k">URL structure</td><td>Replace numeric parameter URLs with descriptive stable routes</td><td>Approved URL map with redirects and canonical targets</td></tr>
-        <tr><td class="k">Robots policy</td><td>Publish a valid robots.txt and state the sitemap location</td><td>200 response, production tested directives</td></tr>
-        <tr><td class="k">XML sitemaps</td><td>Generate indexable URL sitemaps with last modified dates</td><td>Accepted sitemap index, clean coverage report</td></tr>
-        <tr><td class="k">Canonical tags</td><td>Self canonicals plus rules for duplicates, filters and parameters</td><td>One canonical target per indexable page</td></tr>
-        <tr><td class="k">Status codes</td><td>Remove soft 404s, redirect chains and broken internal links</td><td>Critical URLs return the intended 200, 301, 404 or 410</td></tr>
-        <tr><td class="k">Rendering</td><td>Keep content, links and structured data available to crawlers</td><td>Rendered HTML parity test per template</td></tr>
-        <tr><td class="k">Performance</td><td>Reduce template payload, optimise media, caching and scripts</td><td>Mobile field and lab baseline against agreed thresholds</td></tr>
-        <tr><td class="k">International</td><td>Define market, language and hreflang only where distinct pages exist</td><td>Validated locale map, no reciprocal errors</td></tr>
-        <tr><td class="k">Security</td><td>Maintain TLS, clean redirects, safe headers, controlled admin access</td><td>Security review, no index leakage from private areas</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="pageno">08</div>
-</section>
-
-<!-- 09 CRAWL PATH -->
-<section class="slide" data-i="8">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Crawl path</div>
-    <h2>How a page travels from access to index</h2>
-    <div class="flow">
-      <div class="fs c1"><div class="fn">01</div><div class="ft">robots.txt</div><p>Declares who may crawl and where the sitemap lives.</p><div class="fb"></div></div>
-      <div class="fs c2"><div class="fn">02</div><div class="ft">Sitemap</div><p>Lists the preferred URLs and when each last changed.</p><div class="fb"></div></div>
-      <div class="fs c3"><div class="fn">03</div><div class="ft">Internal links</div><p>Show hierarchy and which pages matter most.</p><div class="fb"></div></div>
-      <div class="fs c4"><div class="fn">04</div><div class="ft">Canonical</div><p>Consolidates duplicates onto one preferred page.</p><div class="fb"></div></div>
-      <div class="fs c5"><div class="fn">05</div><div class="ft">Index</div><p>Coverage becomes measurable and can be improved.</p><div class="fb"></div></div>
-    </div>
-    <div style="margin-top:34px">
-      <div class="kicker">Product information flow</div>
-      <div class="flow f4" style="margin-top:6px">
-        <div class="fs c1"><div class="fn">01</div><div class="ft">Master data</div><p>SKU attributes and approved claims, owned by Darshan.</p><div class="fb"></div></div>
-        <div class="fs c2"><div class="fn">02</div><div class="ft">Visible page</div><p>The complete customer explanation, in plain language.</p><div class="fb"></div></div>
-        <div class="fs c3"><div class="fn">03</div><div class="ft">Structured data</div><p>Matching machine readable facts, never contradicting the page.</p><div class="fb"></div></div>
-        <div class="fs c4"><div class="fn">04</div><div class="ft">Feeds</div><p>Consistent merchant and channel data downstream.</p><div class="fb"></div></div>
-      </div>
-    </div>
-    <div class="take">Structured data improves eligibility and interpretation. <em>It does not guarantee rankings or inclusion in generated answers.</em></div>
-  </div>
-  <div class="pageno">09</div>
-</section>
-
-<!-- 10 ON PAGE -->
-<section class="slide" data-i="9">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">On page model</div>
-    <h2>Describe the product so nobody has to guess</h2>
-    <table class="tbl">
-      <thead><tr><th style="width:18%">Element</th><th style="width:41%">Category page</th><th>Product family page</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Primary intent</td><td>One format, fragrance family, use case or audience need</td><td>One identifiable product family and its variants</td></tr>
-        <tr><td class="k">Title and heading</td><td>Unique category topic, plus Darshan where useful</td><td>Product name, format and the distinguishing attribute</td></tr>
-        <tr><td class="k">Opening copy</td><td>Short orientation with visible product choices</td><td>What it is, scent profile, format and intended use</td></tr>
-        <tr><td class="k">Decision support</td><td>Filters, comparisons, selection advice, related guides</td><td>Variants, price, availability, burn details, safety</td></tr>
-        <tr><td class="k">Evidence</td><td>Manufacturing detail, approved claims, images, FAQs</td><td>Specifications, packaging, identifiers and care</td></tr>
-        <tr><td class="k">Internal links</td><td>Parents, children, priority products, the trade route</td><td>Category, related products, guides, purchase path</td></tr>
-        <tr><td class="k">Structured data</td><td>Breadcrumb, collection or item list where appropriate</td><td>Product, Offer, Breadcrumb, reviews only when eligible</td></tr>
-      </tbody>
-    </table>
-    <div class="take">Structured data must match visible content. <em>A claim that exists only in the markup is a liability, not an advantage.</em></div>
-  </div>
-  <div class="pageno">10</div>
-</section>
-
-<!-- 11 CONTENT -->
-<section class="slide" data-i="10">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Content strategy</div>
-    <h2>Seven content layers, each sourced from a real expert</h2>
-    <table class="tbl sm">
-      <thead><tr><th style="width:19%">Content layer</th><th style="width:43%">Editorial purpose</th><th>Where the originality comes from</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Product education</td><td>Help a buyer understand format, strength, use and safety</td><td>Product development, manufacturing, customer care</td></tr>
-        <tr><td class="k">Selection guidance</td><td>Recommend by occasion, scent preference, room or experience</td><td>Approved assortment logic, real product attributes</td></tr>
-        <tr><td class="k">Care and safety</td><td>Explain correct use, storage, ventilation and handling</td><td>Packaging instructions, compliance review</td></tr>
-        <tr><td class="k">Manufacturing</td><td>Explain materials, quality controls and production choices</td><td>Factory process experts, approved visuals</td></tr>
-        <tr><td class="k">Brand provenance</td><td>Document history, milestones, leadership and presence</td><td>Corporate records, interviews, verified archive</td></tr>
-        <tr><td class="k">Trade knowledge</td><td>Explain case packs, export readiness, distributor process</td><td>Sales, export and operations teams</td></tr>
-        <tr><td class="k">FAQs</td><td>Answer recurring purchase, product and delivery questions</td><td>Site search, customer service, retailer enquiries</td></tr>
-      </tbody>
-    </table>
-    <div class="callout tint">
-      <div class="cll">Editorial control</div>
-      <p>Brief, draft, verify, approve, measure. Generative tools may support research and drafting, but only reviewed content is published.</p>
-    </div>
-    <div class="take">Do not publish hundreds of near duplicate pages for minor query variations. <em>One authoritative page per coherent customer need.</em></div>
-  </div>
-  <div class="pageno">11</div>
-</section>
-
-<!-- 12 AEO -->
-<section class="slide" data-i="11">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Answer Engine Optimisation</div>
-    <h2>Resolve the question clearly, then still earn the click</h2>
-    <table class="tbl sm">
-      <thead><tr><th style="width:26%">Question pattern</th><th style="width:40%">Recommended answer asset</th><th>Conversion path</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Sticks vs cones vs dhoop</td><td>Comparison guide with a concise summary and specification table</td><td>Format collections and product families</td></tr>
-        <tr><td class="k">Which suits meditation</td><td>Selection guide based on approved scent and use attributes</td><td>Curated collection or guided finder</td></tr>
-        <tr><td class="k">How long does it burn</td><td>Product specific facts with testing basis and conditions</td><td>Variant selection and purchase</td></tr>
-        <tr><td class="k">How to use it safely</td><td>Approved safety guide, repeated on relevant product pages</td><td>Product page and support</td></tr>
-        <tr><td class="k">Where it is made</td><td>Verified company and manufacturing evidence</td><td>About, manufacturing, trade enquiry</td></tr>
-        <tr><td class="k">How to become a distributor</td><td>Eligibility, regions and required business details</td><td>Structured distributor form</td></tr>
-      </tbody>
-    </table>
-    <div style="margin-top:22px">
-      <div class="kicker">How a good answer is built</div>
-      <div class="flow" style="margin-top:6px">
-        <div class="fs c1"><div class="fn">01</div><div class="ft">Question</div><p>Use the language customers actually use.</p><div class="fb"></div></div>
-        <div class="fs c2"><div class="fn">02</div><div class="ft">Direct answer</div><p>State the useful conclusion early.</p><div class="fb"></div></div>
-        <div class="fs c3"><div class="fn">03</div><div class="ft">Evidence</div><p>Add the product fact, method or source.</p><div class="fb"></div></div>
-        <div class="fs c4"><div class="fn">04</div><div class="ft">Context</div><p>Explain conditions and alternatives.</p><div class="fb"></div></div>
-        <div class="fs c5"><div class="fn">05</div><div class="ft">Next step</div><p>Link to the relevant action.</p><div class="fb"></div></div>
-      </div>
-    </div>
-    <div class="note">FAQ markup applies only where the visible page carries genuine questions and answers, and where implementation follows current eligibility policies. Markup is not a substitute for useful content.</div>
-  </div>
-  <div class="pageno">12</div>
-</section>
-
-<!-- 13 GEO -->
-<section class="slide" data-i="12">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Generative Engine Optimisation</div>
-    <h2>Give generated answers something safe to cite</h2>
-    <div class="two">
-      <div>
-        <div class="colh r">Seven signals to publish</div>
-        <table class="tbl sm">
-          <tbody>
-            <tr><td class="k" style="width:38%">Entity clarity</td><td>Consistent legal brand, product, founder and contact facts</td></tr>
-            <tr><td class="k">Retrievable facts</td><td>Visible product attributes, tables, definitions, policies</td></tr>
-            <tr><td class="k">First party evidence</td><td>Manufacturing detail, test methods, original images, named experts</td></tr>
-            <tr><td class="k">Corroboration</td><td>Accurate retailer, distributor, industry and media references</td></tr>
-            <tr><td class="k">Freshness</td><td>Visible update dates and maintained availability</td></tr>
-            <tr><td class="k">Access policy</td><td>A deliberate crawler policy for search and for training</td></tr>
-            <tr><td class="k">User value</td><td>Pages that answer and offer a useful next action</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <div class="colh">What we will not do</div>
-        <table class="tbl sm">
-          <tbody>
-            <tr><td class="k" style="width:44%">Mass generated question pages</td><td>Fewer pages, built from real customer needs</td></tr>
-            <tr><td class="k">Unverified AI claims</td><td>Named sources and accountable review</td></tr>
-            <tr><td class="k">Paid or fabricated mentions</td><td>Earn coverage, keep partner information accurate</td></tr>
-            <tr><td class="k">Special AI schema promises</td><td>Valid standard data matching visible content</td></tr>
-            <tr><td class="k">Keyword repetition</td><td>Precise natural content for people and retrieval</td></tr>
-          </tbody>
-        </table>
-        <div class="callout tint" style="margin-top:18px">
-          <div class="cll">Why it helps</div>
-          <p>Precise passages give retrieval systems something to ground an answer in, and first party evidence adds what a generic summary cannot reproduce.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="pageno">13</div>
-</section>
-
-<!-- 14 CHANNELS -->
-<section class="slide" data-i="13">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Channel plan</div>
-    <h2>One foundation, five surfaces, different controls</h2>
-    <table class="tbl sm">
-      <thead><tr><th style="width:15%">Channel</th><th style="width:27%">Discovery path</th><th style="width:31%">Darshan actions</th><th>Measurement</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Google Search</td><td>Googlebot, ranking systems, AI Overviews and AI Mode</td><td>Technical SEO, helpful content, structured data, Search Console, Merchant Center</td><td>Queries, clicks, conversions, AI visibility where available</td></tr>
-        <tr><td class="k">Gemini</td><td>Google index plus eligible product or business data</td><td>Keep website, Merchant Center and Business Profile facts consistent</td><td>Referral evidence and assisted conversions</td></tr>
-        <tr><td class="k">ChatGPT search</td><td>OAI SearchBot and providers with cited web results</td><td>Valid robots.txt, allow OAI SearchBot, maintain citable pages</td><td>Referral traffic, landing pages, citations</td></tr>
-        <tr><td class="k">Bing and Copilot</td><td>Bing crawl and index, connected Microsoft experiences</td><td>Bing Webmaster Tools, sitemaps, IndexNow where appropriate</td><td>Impressions, clicks, crawl health, referrals</td></tr>
-        <tr><td class="k">Other answer tools</td><td>Web indexes, retrieval partners, user browsing</td><td>Maintain open, fast, canonical pages and monitor cited sources</td><td>Citation sampling and branded discovery</td></tr>
-      </tbody>
-    </table>
-    <div class="callout">
-      <div class="cll">Crawler decision</div>
-      <p>OpenAI documents three separate controls. Allow OAI SearchBot for discovery, then make a deliberate legal decision about GPTBot, rather than treating both as one setting.</p>
-    </div>
-    <div class="take">Search visibility and model training are <em>two different consents, and Darshan should answer them separately.</em></div>
-  </div>
-  <div class="pageno">14</div>
-</section>
-
-<!-- 15 ENTITY -->
-<section class="slide" data-i="14">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Entity authority</div>
-    <h2>Search systems compare your site against everywhere else you appear</h2>
-    <table class="tbl sm">
-      <thead><tr><th style="width:18%">Evidence source</th><th style="width:42%">Required action</th><th>Quality standard</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Corporate identity</td><td>One approved brand name, legal name, address and founding description</td><td>Matches website, profiles, packaging and listings</td></tr>
-        <tr><td class="k">Product identifiers</td><td>Stable names, SKUs, barcodes, sizes, formats and images</td><td>Matches product pages, feeds and retailers</td></tr>
-        <tr><td class="k">Retailer listings</td><td>Correct outdated titles, images, pack sizes and attribution</td><td>No conflicting facts on priority retailer pages</td></tr>
-        <tr><td class="k">Business profiles</td><td>Complete and verify Google Business Profile and local listings</td><td>Correct categories, hours, contacts and imagery</td></tr>
-        <tr><td class="k">Social profiles</td><td>Consistent naming, biographies, links and product vocabulary</td><td>Profiles reinforce rather than contradict the entity</td></tr>
-        <tr><td class="k">Editorial coverage</td><td>Provide verifiable product and company information to publishers</td><td>Independent coverage, no purchased claims</td></tr>
-        <tr><td class="k">Expert attribution</td><td>Identify accountable product, safety or export reviewers</td><td>Real people, defined roles, approved contributions</td></tr>
-      </tbody>
-    </table>
-    <div style="margin-top:20px">
-      <div class="kicker">The evidence loop</div>
-      <div class="flow" style="margin-top:6px">
-        <div class="fs c1"><div class="fn">01</div><div class="ft">Publish</div><p>Approved facts on Darshan's own pages.</p><div class="fb"></div></div>
-        <div class="fs c2"><div class="fn">02</div><div class="ft">Distribute</div><p>Feeds, profiles and partner listings.</p><div class="fb"></div></div>
-        <div class="fs c3"><div class="fn">03</div><div class="ft">Verify</div><p>Independent, accurate external references.</p><div class="fb"></div></div>
-        <div class="fs c4"><div class="fn">04</div><div class="ft">Monitor</div><p>Find conflicts and omissions.</p><div class="fb"></div></div>
-        <div class="fs c5"><div class="fn">05</div><div class="ft">Correct</div><p>Update source and destination together.</p><div class="fb"></div></div>
-      </div>
-    </div>
-  </div>
-  <div class="pageno">15</div>
-</section>
-
-<!-- 16 MEASUREMENT -->
-<section class="slide" data-i="15">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Measurement</div>
-    <h2>The scorecard separates visibility from business value</h2>
-    <table class="tbl">
-      <thead><tr><th style="width:19%">Layer</th><th style="width:44%">Core indicators</th><th>Decision it supports</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Technical health</td><td>Indexable URLs, sitemap coverage, crawl errors, canonical conflicts</td><td>Can engines reach the intended pages</td></tr>
-        <tr><td class="k">Search visibility</td><td>Non brand impressions, clicks, position, share by topic</td><td>Which demand areas are gaining or losing</td></tr>
-        <tr><td class="k">AI visibility</td><td>Citation presence, cited URL, answer accuracy, co citation</td><td>Where Darshan is used as a source</td></tr>
-        <tr><td class="k">Engagement</td><td>Landing page engagement, product views, guide to product flow</td><td>Whether visitors find the content useful</td></tr>
-        <tr><td class="k">Commercial</td><td>Organic revenue, leads, distributor enquiries, new customer share</td><td>Whether discovery contributes to the business</td></tr>
-        <tr><td class="k">Content quality</td><td>Indexation, update compliance, corrections, content decay</td><td>What to consolidate, improve or retire</td></tr>
-      </tbody>
-    </table>
-    <div class="take">AI answers vary by model, time and location. We report directional trends and cited evidence, <em>never a false single ranking.</em></div>
-  </div>
-  <div class="pageno">16</div>
-</section>
-
-<!-- 17 ROADMAP -->
-<section class="slide" data-i="16">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Implementation roadmap</div>
-    <h2>Sixteen weeks repairs the foundation and launches the system</h2>
-    <table class="gantt">
-      <thead><tr><th>Workstream</th><th>1–2</th><th>3–4</th><th>5–6</th><th>7–8</th><th>9–10</th><th>11–12</th><th>13–14</th><th>15–16</th><th>Timing</th></tr></thead>
-      <tbody>
-        <tr><td>Discovery and access</td><td><div class="cell on"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td>Weeks 1 to 2</td></tr>
-        <tr><td>Crawl and index repair</td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td>Weeks 1 to 4</td></tr>
-        <tr><td>Architecture and URLs</td><td><div class="cell"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td>Weeks 2 to 6</td></tr>
-        <tr><td>Template and structured data</td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td>Weeks 4 to 8</td></tr>
-        <tr><td>Priority pages</td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td>Weeks 6 to 10</td></tr>
-        <tr><td>Guide and answer content</td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td>Weeks 8 to 12</td></tr>
-        <tr><td>Entity and channel alignment</td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell on"></div></td><td><div class="cell on"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td>Weeks 8 to 12</td></tr>
-        <tr><td>QA, launch and measurement</td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell on2"></div></td><td><div class="cell on2"></div></td><td><div class="cell"></div></td><td>Weeks 11 to 14</td></tr>
-        <tr><td>Optimisation</td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell"></div></td><td><div class="cell on3"></div></td><td><div class="cell on3"></div></td><td>Weeks 13 to 16</td></tr>
-      </tbody>
-    </table>
-    <div class="steps s4" style="margin-top:24px">
-      <div class="step c1"><div class="sn">Gate 1</div><div class="sl">Baseline</div><p>Access granted and audit findings agreed.</p><div class="bar"></div></div>
-      <div class="step c2"><div class="sn">Gate 2</div><div class="sl">Design</div><p>URL and content system approved before build.</p><div class="bar"></div></div>
-      <div class="step c3"><div class="sn">Gate 3</div><div class="sl">Release</div><p>Technical fixes and priority pages live.</p><div class="bar"></div></div>
-      <div class="step c4"><div class="sn">Gate 4</div><div class="sl">Prove</div><p>Measurement and improvement cycle running.</p><div class="bar"></div></div>
-    </div>
-  </div>
-  <div class="pageno">17</div>
-</section>
-
-<!-- 18 RESPONSIBILITIES -->
-<section class="slide" data-i="17">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Deliverables</div>
-    <h2>We build the system. Darshan supplies the authority.</h2>
-    <div class="two">
-      <div>
-        <div class="colh r">The implementation team delivers</div>
-        <ul class="lst tick">
-          <li>Full technical crawl and indexed page audit</li>
-          <li>Keyword, topic, intent and competitor discovery map</li>
+    <div class="kicker">Scope Boundaries</div>
+    <h2>What the engagement covers, and what falls outside it.</h2>
+    <div class="bounds">
+      <div class="bx">
+        <h3>In scope</h3>
+        <ul>
+          <li>Technical SEO design and implementation support</li>
           <li>Information architecture, URL and redirect plan</li>
           <li>Metadata, internal linking and structured data specifications</li>
-          <li>Priority category, product, guide and answer briefs</li>
-          <li>Google, ChatGPT, Gemini and Bing configuration plan</li>
-          <li>Measurement dashboard, prompt set and monthly reporting</li>
-          <li>Quality assurance, training, launch support and backlog</li>
-        </ul>
-      </div>
-      <div>
-        <div class="colh">Darshan provides and approves</div>
-        <ul class="lst">
-          <li>Search Console, analytics, Merchant Center and platform access</li>
-          <li>Priority markets, audiences, categories and objectives</li>
-          <li>Final product hierarchy, SKU data, approved claims and policies</li>
-          <li>Product experts, brand reviewers and compliance owners</li>
-          <li>Original photography, process evidence and certifications</li>
-          <li>Crawler and model training policy decisions, with legal review</li>
-          <li>Timely access to revenue, lead and customer service data</li>
-          <li>Acceptance testing, approvals and ongoing content owners</li>
-        </ul>
-      </div>
-    </div>
-    <div class="callout">
-      <div class="cll">Governance</div>
-      <p>Weekly delivery decisions and risks, monthly visibility and commercial review, quarterly technical health and roadmap refresh.</p>
-    </div>
-  </div>
-  <div class="pageno">18</div>
-</section>
-
-<!-- 19 SCOPE -->
-<section class="slide" data-i="18">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Scope boundaries</div>
-    <h2>What is included, what needs confirming, what we will not promise</h2>
-    <div class="three">
-      <div>
-        <div class="colh t">Included</div>
-        <ul class="lst tick">
-          <li>Technical SEO design and implementation support</li>
-          <li>SEO, AEO and GEO content system</li>
-          <li>Priority URL and metadata optimisation</li>
-          <li>Structured data specifications</li>
-          <li>Crawler and sitemap controls</li>
+          <li>SEO, AEO and GEO content system for the <strong>priority page set</strong></li>
+          <li>Crawler, sitemap and AI access controls</li>
+          <li>Entity and external evidence alignment</li>
           <li>Search and AI measurement framework</li>
-          <li>Training and launch support</li>
+          <li>Training, launch support and the improvement backlog</li>
         </ul>
       </div>
-      <div>
-        <div class="colh a">Requires confirmation</div>
-        <ul class="lst">
-          <li>Exact number of priority pages</li>
-          <li>Target countries and languages</li>
-          <li>CMS and commerce platform</li>
-          <li>Merchant Center and Business Profile ownership</li>
-          <li>Backlink and digital PR programme volume</li>
-          <li>Ongoing monthly content production</li>
-        </ul>
-      </div>
-      <div>
-        <div class="colh">Not assumed</div>
-        <ul class="lst cross">
-          <li>Guaranteed rankings or AI citations</li>
-          <li>Paid search or paid social media</li>
-          <li>Fabricated reviews or mentions</li>
-          <li>Mass AI content production</li>
-          <li>Unapproved health or performance claims</li>
-          <li>Third party platform policy control</li>
+      <div class="bx out">
+        <h3>Out of scope</h3>
+        <ul>
+          <li><strong>Guaranteed rankings or AI citations</strong> &mdash; no engine permits this</li>
+          <li>Paid search and paid social media</li>
+          <li>Mass AI content production and scaled question pages</li>
+          <li>Fabricated reviews, mentions or purchased links</li>
+          <li>Unapproved health, spiritual or performance claims</li>
+          <li>Website rebuild and platform migration &mdash; quoted separately</li>
+          <li>Marketplace and quick commerce listing operations</li>
+          <li>Ongoing monthly content volume beyond the launch set</li>
         </ul>
       </div>
     </div>
-    <div class="take">Every boundary is named now rather than discovered later. <em>Anything in the middle column changes the estimate, so it is settled during discovery.</em></div>
   </div>
-  <div class="pageno">19</div>
+  <div class="pageno">02 / 03</div>
 </section>
 
-<!-- 20 LAUNCH CRITERIA -->
-<section class="slide" data-i="19">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
+<!-- 03 timeline + investment -->
+<section class="slide">
+  <img class="slogo" src="assets/tempest.png" alt="Tempest">
+  <img class="clogo" src="assets/darshan.png" alt="Darshan Incense">
   <div class="inner">
-    <div class="kicker">Launch acceptance</div>
-    <h2>Six gates decide whether the system is live</h2>
-    <div class="rows">
-      <div class="row"><div class="rn c1">01</div><h3>Crawl</h3><p>robots.txt and sitemaps return 200, and approved crawlers can reach the intended content.</p></div>
-      <div class="row"><div class="rn c2">02</div><h3>Index</h3><p>Preferred URLs have valid canonicals, status codes, metadata and internal links.</p></div>
-      <div class="row"><div class="rn c3">03</div><h3>Meaning</h3><p>Product, business and breadcrumb structured data validates and matches visible content.</p></div>
-      <div class="row"><div class="rn c1">04</div><h3>Content</h3><p>Priority pages satisfy mapped intent, use approved evidence and pass editorial review.</p></div>
-      <div class="row"><div class="rn c2">05</div><h3>Channels</h3><p>Google and Bing properties, feeds, profiles and approved AI crawler rules are configured.</p></div>
-      <div class="row"><div class="rn c3">06</div><h3>Measurement</h3><p>Baseline dashboard, conversions, AI prompt set and reporting ownership are active.</p></div>
-    </div>
-    <div class="take">Each gate is evidence, not an opinion. <em>The system is accepted when all six produce a passing artefact.</em></div>
-  </div>
-  <div class="pageno">20</div>
-</section>
-
-<!-- 21 NEXT STEP -->
-<section class="slide" data-i="20">
-  <img class="slogo" src="assets/tempest_logo_dark.png" alt="Tempest">
-  <div class="inner">
-    <div class="kicker">Recommended next step</div>
-    <h2>A two week discovery phase, before anyone commits to page volume</h2>
-    <div class="steps s3">
-      <div class="step c1"><div class="sn">Days 1 to 3</div><div class="sl">Access</div><p>Crawl the full site and review measurement, index coverage and account access.</p><div class="bar"></div></div>
-      <div class="step c2"><div class="sn">Days 4 to 7</div><div class="sl">Analysis</div><p>Demand, competitor, content and entity analysis across priority markets.</p><div class="bar"></div></div>
-      <div class="step c3"><div class="sn">Days 8 to 10</div><div class="sl">Blueprint</div><p>Priorities, architecture, roadmap and the commercial estimate.</p><div class="bar"></div></div>
-    </div>
-    <table class="tbl sm" style="margin-top:28px">
-      <thead><tr><th style="width:34%">Discovery output</th><th>Decision it enables</th></tr></thead>
+    <div class="kicker">Timeline &amp; Investment</div>
+    <h2>Sixteen weeks from kick off.</h2>
+    <table class="dl tight">
+      <thead><tr><th>Workstream</th><th>Qty / Spec</th><th>Remarks</th></tr></thead>
       <tbody>
-        <tr><td class="k">Verified audit and benchmark</td><td>Confirms the actual index, traffic, technical and authority baseline</td></tr>
-        <tr><td class="k">Search and answer demand map</td><td>Defines priority topics, customer questions, markets and competitors</td></tr>
-        <tr><td class="k">Target architecture</td><td>Approves page types, URL rules, internal linking and migration controls</td></tr>
-        <tr><td class="k">Priority backlog</td><td>Sequences technical, template, product, content and channel work</td></tr>
-        <tr><td class="k">Measurement design</td><td>Defines search, citation, referral, engagement and commercial reporting</td></tr>
-        <tr><td class="k">Final implementation proposal</td><td>Confirms scope, duration, responsibilities and commercial estimate</td></tr>
+        <tr><td>Discovery &amp; access</td><td class="qty">Weeks 1&ndash;2</td><td>Accounts, crawl, measurement review and audit findings agreed</td></tr>
+        <tr><td>Crawl &amp; index repair</td><td class="qty">Weeks 1&ndash;4</td><td>robots.txt, sitemaps, canonicals and status codes corrected</td></tr>
+        <tr><td>Architecture &amp; URLs</td><td class="qty">Weeks 2&ndash;6</td><td>Page system, URL rules, redirects and migration controls approved</td></tr>
+        <tr><td>Templates &amp; structured data</td><td class="qty">Weeks 4&ndash;8</td><td>Metadata, internal linking and markup shipped per template</td></tr>
+        <tr><td>Priority pages</td><td class="qty">Weeks 6&ndash;10</td><td>Category, collection and product family pages written and published</td></tr>
+        <tr><td>Guide &amp; answer content</td><td class="qty">Weeks 8&ndash;12</td><td>AEO guides, comparisons and FAQs with conversion paths</td></tr>
+        <tr><td>Entity &amp; channel alignment</td><td class="qty">Weeks 8&ndash;12</td><td>Profiles, retailer listings, feeds and AI crawler rules configured</td></tr>
+        <tr><td>QA, launch &amp; measurement</td><td class="qty">Weeks 11&ndash;14</td><td>Acceptance gates, baseline dashboard and reporting ownership</td></tr>
+        <tr><td>Optimisation</td><td class="qty">Weeks 13&ndash;16</td><td>Citation sampling, content refresh and the improvement cycle</td></tr>
+        <tr><td><strong>Investment</strong></td><td class="qty hot">&mdash;</td><td>To be confirmed after the discovery and audit stage</td></tr>
       </tbody>
     </table>
-    <div class="callout tint" style="margin-top:20px">
-      <div class="cll">Decision requested</div>
-      <p>Approve the discovery phase, nominate business, product, technology and content owners, and provide access to Search Console, analytics, Merchant Center and the website platform.</p>
-    </div>
+    <div class="notebar"><b>The critical path is account access, approved product and brand evidence, and decision turnaround.</b> AI answers vary by model and location, so we report cited evidence and trends, never a single ranking.</div>
   </div>
-  <div class="pageno">21</div>
+  <div class="pageno">03 / 03</div>
 </section>
-
-<!-- 22 CLOSE -->
-<section class="slide dark" data-i="21">
-  <div class="closewrap">
-    <img src="assets/tempest_logo_white.png" alt="Tempest">
-    <h2>Get found, get read,<br><em>get cited.</em></h2>
-    <div class="cfoot">
-      <b>Tempest Advertising</b><br>
-      Prepared for Darshan International · 21 September 2026
-    </div>
-  </div>
-</section>
-
+<div id="nav"><button id="prev" aria-label="Previous slide">&#8249;</button><button id="next" aria-label="Next slide">&#8250;</button></div>
 </div>
-<div id="bar"></div>
-<div id="nav"><button id="prev" aria-label="Previous slide">‹</button><button id="next" aria-label="Next slide">›</button></div>
 <script>
 const slides=[...document.querySelectorAll('.slide')],bar=document.getElementById('bar'),
       stage=document.getElementById('stage'),nav=document.getElementById('nav');
@@ -786,22 +348,21 @@ function show(i){
   slides.forEach((s,j)=>s.classList.toggle('on',j===cur));
   bar.style.width=(cur/(slides.length-1)*100)+'%';
   nav.classList.toggle('hide',cur===0);
-  history.replaceState(null,'','#'+cur);
+  try{history.replaceState(null,'','#'+cur);}catch(e){}
 }
-function fit(){
-  const s=Math.min(innerWidth/1280,innerHeight/720);
-  stage.style.transform=`translate(-50%,-50%) scale(${s})`;
-}
-addEventListener('resize',fit);fit();show(cur);
+function fit(){const s=Math.min(innerWidth/1280,innerHeight/720);stage.style.transform=`translate(-50%,-50%) scale(${s})`;}
+addEventListener('resize',fit);
 addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')show(cur+1);
-  else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();show(cur+1);}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(cur-1);}
   else if(e.key==='Home')show(0);
   else if(e.key==='End')show(slides.length-1);
   else if(e.key==='f'||e.key==='F')document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
 });
-document.getElementById('prev').onclick=()=>show(cur-1);
-document.getElementById('next').onclick=()=>show(cur+1);
+document.getElementById('prev').onclick=e=>{e.stopPropagation();show(cur-1);};
+document.getElementById('next').onclick=e=>{e.stopPropagation();show(cur+1);};
+stage.addEventListener('click',e=>{if(!e.target.closest('a,button'))show(cur+1);});
+fit();show(cur);
 </script>
 </body>
 </html>
