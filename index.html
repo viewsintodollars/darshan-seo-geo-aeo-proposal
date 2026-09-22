@@ -238,6 +238,17 @@ table.dl.xt thead th{padding-bottom:9px}
 #prev{left:26px}#next{right:26px}
 #nav.hide button{opacity:0;pointer-events:none}
 @media (max-width:900px){#prev{left:8px}#next{right:8px}}
+
+/* pricing-breakdown slide: more rows than the original 3-slide layout assumed */
+table.dl.xs tbody td{padding:4.5px 16px 4.5px 0;font-size:11.8px;line-height:1.38}
+table.dl.xs thead th{padding-bottom:7px}
+.slide.pricing h2{font-size:29px;margin-bottom:2px}
+.slide.pricing .notebar{bottom:34px;font-size:11.5px}
+
+/* divider row separating the timeline block from the cost block */
+table.dl tbody tr.sect td{padding-top:15px;padding-bottom:6px;border-bottom:none;
+  font-size:9.5px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--red)}
+table.dl tbody tr.sect+tr td{border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -312,13 +323,13 @@ table.dl.xt thead th{padding-bottom:9px}
 </section>
 
 <!-- 03 timeline + investment -->
-<section class="slide">
+<section class="slide pricing">
   <img class="slogo" src="assets/tempest.png" alt="Tempest">
   <img class="clogo" src="assets/darshan.png" alt="Darshan Incense">
   <div class="inner">
     <div class="kicker">Timeline &amp; Investment</div>
     <h2>Twelve weeks from kick off.</h2>
-    <table class="dl tight">
+    <table class="dl xs">
       <thead><tr><th>Workstream</th><th>Qty / Spec</th><th>Remarks</th></tr></thead>
       <tbody>
         <tr><td>Discovery &amp; access</td><td class="qty">Weeks 1&ndash;2</td><td>Accounts, crawl, measurement review and audit findings agreed</td></tr>
@@ -328,7 +339,12 @@ table.dl.xt thead th{padding-bottom:9px}
         <tr><td>Priority pages</td><td class="qty">Weeks 6&ndash;10</td><td>Category, collection and product family pages written and published</td></tr>
         <tr><td>Performance &amp; rendering</td><td class="qty">Weeks 7&ndash;10</td><td>Payload, media and crawler rendering brought to agreed thresholds</td></tr>
         <tr><td>QA, launch &amp; measurement</td><td class="qty">Weeks 9&ndash;12</td><td>Acceptance gates, baseline dashboard and reporting ownership</td></tr>
-        <tr><td><strong>Investment</strong></td><td class="qty hot">&#8377;4,19,000 / month</td><td>Monthly retainer: SEO &#8377;1,49,000, AEO &#8377;1,35,000, GEO &#8377;1,35,000. Plus GST. Week numbers above are the initial build inside the retainer, not a one time delivery</td></tr>
+        <tr class="sect"><td colspan="3">Investment breakdown</td></tr>
+        <tr><td>SEO retainer</td><td class="qty">&#8377;1,49,000 / mo</td><td>Technical, on page and off page search optimisation</td></tr>
+        <tr><td>AEO retainer</td><td class="qty">&#8377;1,35,000 / mo</td><td>Answer engine optimisation for assistant and featured answer surfaces</td></tr>
+        <tr><td>GEO retainer</td><td class="qty">&#8377;1,35,000 / mo</td><td>Generative engine optimisation for AI search results</td></tr>
+        <tr><td>Commitment</td><td class="qty">Monthly</td><td>Each line can be taken independently. Plus GST on all three</td></tr>
+        <tr><td><strong>Timeline note</strong></td><td class="qty hot">Not one time</td><td>The week numbers above are the initial build delivered inside the retainer, not a fixed scope delivery</td></tr>
       </tbody>
     </table>
     <div class="notebar"><b>The critical path is account access, platform change windows and decision turnaround.</b> Index and ranking movement follows recrawling, so the first measurable shift typically lands after launch, not during build.</div>
