@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Search Engine Optimisation — Darshan Incense</title>
+<title>Darshan International &middot; SEO, AEO and GEO Proposal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,8 +12,9 @@
 *{margin:0;padding:0;box-sizing:border-box}
 /* Tempest tokens per proposal-system.md §2, corrected 2026-09-21. */
 :root{
-  --red:#BE272B; --blue:#00598F; --ink:#16181d; --body:#5b6068; --mute:#9aa0a8;
-  --line:#e6e6e8; --surface:#f7f7f8; --warm:#faf6f1; --dark:#232326;
+  --red:#BD272B; --blue:#24395C; --ink:#0F0F0F; --body:#383838; --mute:#5A6B82;
+  --line:#DCE2EB; --surface:#F5F7FB; --warm:#F5F7FB; --dark:#0F0F0F;
+  --ochre:#D08A45; --good:#2C7A5A; --bad:#9B3B2E;
 }
 html,body{height:100%;background:#0e0f12;overflow:hidden;font-family:'Poppins',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
 #stage{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform-origin:center;background:#fff;box-shadow:0 40px 120px rgba(0,0,0,.55)}
@@ -249,72 +250,98 @@ table.dl.xs thead th{padding-bottom:7px}
 table.dl tbody tr.sect td{padding-top:15px;padding-bottom:6px;border-bottom:none;
   font-size:9.5px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--red)}
 table.dl tbody tr.sect+tr td{border-top:1px solid var(--line)}
+
+/* v2: in scope / out of scope / terms, three columns, TEMPEST-COLORS accents */
+.bounds.c3{grid-template-columns:1fr 1fr 1fr;gap:30px;margin-top:22px}
+.bounds.c3 .bx li{font-size:12.6px;line-height:1.45;padding:5px 0 5px 24px}
+.bx h3{color:var(--good);border-bottom-color:var(--good)}
+.bx li::before{border-color:var(--good)}
+.bx.out h3{color:var(--bad);border-bottom-color:var(--bad)}
+.bx.out li::before{color:var(--bad);opacity:.75}
+.bx.terms h3{color:var(--blue);border-bottom-color:var(--blue)}
+.bx.terms li::before{content:'';left:4px;top:12px;width:6px;height:6px;border:none;border-radius:50%;
+  background:var(--blue);transform:none}
+.notebar{border-left-color:var(--ochre)}
+.slide.packed .notebar{bottom:30px;font-size:11.5px}
+table.dl tbody td:first-child{width:23%}
+table.dl tbody td.qty{width:16%}
 </style>
 </head>
 <body>
 <div id="stage">
 <div id="bar"></div>
-<!-- 01 scope deliverables -->
+
+<!-- 01 scope of deliverables -->
 <section class="slide packed on">
   <img class="slogo" src="assets/tempest.png" alt="Tempest">
   <img class="clogo" src="assets/darshan.png" alt="Darshan Incense">
   <div class="inner">
-    <div class="kicker">Search Engine Optimisation &middot; Scope of Deliverables</div>
-    <h2>A site search engines can crawl, read and rank.</h2>
-    <table class="dl xt">
+    <div class="kicker">SEO, AEO &amp; GEO &middot; Scope of Deliverables</div>
+    <h2>One foundation, three retainers: search, answers, AI.</h2>
+    <table class="dl xs">
       <thead><tr><th>Deliverable</th><th>Qty / Spec</th><th>Remarks</th></tr></thead>
       <tbody>
-        <tr><td>Technical audit &amp; baseline</td><td class="qty">1</td><td>Full crawl, index coverage, Search Console, analytics and backlink baseline</td></tr>
-        <tr><td>Crawl control</td><td class="qty">Full site</td><td>robots.txt and XML sitemaps published, validated and submitted</td></tr>
-        <tr><td>Index hygiene</td><td class="qty">Full site</td><td>Canonical tags, status codes, soft 404s and redirect chains corrected</td></tr>
-        <tr><td>URL structure</td><td class="qty">Full catalogue</td><td>Descriptive routes to replace numeric parameters, with a redirect map</td></tr>
-        <tr><td>Site architecture</td><td class="qty">8 page types</td><td>Category, collection, product family, guide, comparison, brand and trade routes</td></tr>
-        <tr><td>Metadata system</td><td class="qty">100+ pages</td><td>Unique titles and descriptions per page, replacing the shared site title</td></tr>
-        <tr><td>On page &amp; internal linking</td><td class="qty">Per template</td><td>Headings, opening copy, decision support and parent to child linking</td></tr>
-        <tr><td>Structured data</td><td class="qty">Per template</td><td>Product, Offer, Breadcrumb and organisation markup matching visible content</td></tr>
-        <tr><td>Performance &amp; rendering</td><td class="qty">Key templates</td><td>Template payload, media, caching and crawler rendering parity</td></tr>
-        <tr><td>Keyword &amp; demand mapping</td><td class="qty">1 map</td><td>Priority topics, commercial intent and competitor coverage by category</td></tr>
-        <tr><td>Reporting &amp; measurement</td><td class="qty">1 dashboard</td><td>Index health, non brand impressions, clicks, position and organic revenue</td></tr>
-        <tr><td>Ongoing content production</td><td class="qty hot">On request</td><td>Monthly category, guide and landing page content beyond the launch set</td></tr>
+        <tr><td>Technical audit &amp; baseline</td><td class="qty">1</td><td>Crawl, index coverage, Search Console, analytics and backlink baseline. robots.txt and sitemap both returned 404 at review</td></tr>
+        <tr><td>SEO foundation, one time</td><td class="qty">153 pages</td><td>Titles, meta descriptions, H1s, headings, canonicals and schema on every page. None exist today</td></tr>
+        <tr><td>Crawl &amp; index control</td><td class="qty">Full site</td><td>robots.txt, XML sitemaps, redirects, status codes and a redirect map for the new store</td></tr>
+        <tr><td>On page &amp; internal linking</td><td class="qty">Monthly</td><td>Copy, headings and links on category, collection and product pages</td></tr>
+        <tr><td>Off page SEO</td><td class="qty">Monthly</td><td>Earned links, citations and consistent brand listings. No link buying</td></tr>
+        <tr><td>Keyword &amp; demand map</td><td class="qty">1, refreshed quarterly</td><td>Priority topics, buyer intent and competitor coverage by category</td></tr>
+        <tr><td>AEO: question map</td><td class="qty">Monthly</td><td>Questions buyers ask ChatGPT, Gemini, Perplexity and AI Overviews about agarbatti, dhoop, fragrance and puja</td></tr>
+        <tr><td>AEO: answer content</td><td class="qty">Monthly</td><td>FAQ, how to and comparison answers on site, with matching FAQ and HowTo markup</td></tr>
+        <tr><td>AEO: contextual positioning</td><td class="qty">Monthly</td><td>Darshan tied to trending festival, pilgrimage and devotional moments so AI answers on those topics name the brand</td></tr>
+        <tr><td>GEO: entity &amp; citations</td><td class="qty">Monthly</td><td>Brand and product facts kept consistent across the site, marketplaces and the sources AI engines cite</td></tr>
+        <tr><td>GEO: visibility tracking</td><td class="qty">Monthly</td><td>A fixed prompt set tracked across AI engines: where Darshan appears, how often, and against which competitors</td></tr>
+        <tr><td>Store migration SEO</td><td class="qty">At website launch</td><td>Metadata, redirects and structured data carried into the new Shopify store without losing rankings</td></tr>
+        <tr><td>Reporting</td><td class="qty">Monthly</td><td>SEO: index health, rankings, clicks, organic revenue. AEO and GEO: answers and contexts where Darshan appears</td></tr>
       </tbody>
     </table>
-    <div class="notebar"><b>Audit basis: public website review completed 21 September 2026.</b> robots.txt and sitemap.xml both returned 404, sampled pages shared the title Darshan International and carried empty meta descriptions.</div>
+    <div class="notebar"><b>SEO wins the search result. AEO puts Darshan inside the answer. GEO gets the brand cited by AI engines.</b> Different work, reported separately, and each can be taken on its own.</div>
   </div>
   <div class="pageno">01 / 03</div>
 </section>
 
-<!-- 02 scope boundaries -->
+<!-- 02 scope boundaries + terms -->
 <section class="slide">
   <img class="slogo" src="assets/tempest.png" alt="Tempest">
   <img class="clogo" src="assets/darshan.png" alt="Darshan Incense">
   <div class="inner">
-    <div class="kicker">Scope Boundaries</div>
-    <h2>What the engagement covers, and what falls outside it.</h2>
-    <div class="bounds">
+    <div class="kicker">SEO, AEO &amp; GEO &middot; Scope Boundaries &amp; Terms</div>
+    <h2>What each retainer covers, what sits outside it, and how it is billed.</h2>
+    <div class="bounds c3">
       <div class="bx">
         <h3>In scope</h3>
         <ul>
-          <li>Technical SEO design and implementation support</li>
-          <li>Crawl control, index hygiene and the redirect map</li>
-          <li>Information architecture and URL structure</li>
-          <li>Metadata, on page copy and internal linking for the <strong>priority page set</strong></li>
-          <li>Structured data specifications per template</li>
-          <li>Keyword and demand mapping by category</li>
-          <li>Search measurement framework and reporting</li>
-          <li>Training, launch support and the improvement backlog</li>
+          <li>One time foundation across all <strong>153 pages</strong></li>
+          <li>Technical, on page and off page SEO every month</li>
+          <li>AEO question maps, answer content and FAQ markup</li>
+          <li>Brand positioning around trending devotional contexts</li>
+          <li>GEO entity work, citations and prompt tracking</li>
+          <li>SEO carried safely into the new Shopify store</li>
+          <li>Monthly report per retainer, with evidence</li>
         </ul>
       </div>
       <div class="bx out">
         <h3>Out of scope</h3>
         <ul>
-          <li><strong>Guaranteed rankings or traffic volumes</strong> &mdash; no engine permits this</li>
-          <li>Answer engine content and FAQ programme &mdash; <strong>separate AEO proposal</strong></li>
-          <li>Generative citation programme &mdash; <strong>separate GEO proposal</strong></li>
-          <li>Paid search and paid social media</li>
-          <li>Website rebuild and platform migration &mdash; quoted separately</li>
-          <li>Bulk product data entry and image curation</li>
-          <li>Link buying, paid placements and fabricated mentions</li>
-          <li>Ongoing monthly content volume beyond the launch set</li>
+          <li>Guaranteed rankings, traffic or AI mentions</li>
+          <li>Paid search and paid social: Performance Ads proposal</li>
+          <li>Website rebuild and new page design</li>
+          <li>Link buying, paid placements or fake mentions</li>
+          <li>Blogs and landing pages beyond the monthly plan</li>
+          <li>Marketplace listing SEO: Listings proposal</li>
+        </ul>
+      </div>
+      <div class="bx terms">
+        <h3>Commercial terms</h3>
+        <ul>
+          <li>Foundation setup is one time, <strong>50% at kick off</strong></li>
+          <li>SEO, AEO and GEO are separate monthly retainers</li>
+          <li>Each retainer can be started or stopped on its own</li>
+          <li>Retainers invoiced monthly in advance</li>
+          <li>Monthly rates reviewed once a year</li>
+          <li>Search Console, analytics and site access from Client</li>
+          <li>Fees exclude GST</li>
         </ul>
       </div>
     </div>
@@ -327,27 +354,27 @@ table.dl tbody tr.sect+tr td{border-top:1px solid var(--line)}
   <img class="slogo" src="assets/tempest.png" alt="Tempest">
   <img class="clogo" src="assets/darshan.png" alt="Darshan Incense">
   <div class="inner">
-    <div class="kicker">Timeline &amp; Investment</div>
-    <h2>Twelve weeks from kick off.</h2>
+    <div class="kicker">SEO, AEO &amp; GEO &middot; Timeline &amp; Investment</div>
+    <h2>Foundation in eight weeks, then a monthly cadence per retainer.</h2>
     <table class="dl xs">
       <thead><tr><th>Workstream</th><th>Qty / Spec</th><th>Remarks</th></tr></thead>
       <tbody>
-        <tr><td>Discovery &amp; access</td><td class="qty">Weeks 1&ndash;2</td><td>Accounts, crawl, measurement review and audit findings agreed</td></tr>
-        <tr><td>Crawl &amp; index repair</td><td class="qty">Weeks 1&ndash;4</td><td>robots.txt, sitemaps, canonicals and status codes corrected</td></tr>
-        <tr><td>Architecture &amp; URLs</td><td class="qty">Weeks 2&ndash;6</td><td>Page system, URL rules, redirects and migration controls approved</td></tr>
-        <tr><td>Templates &amp; structured data</td><td class="qty">Weeks 4&ndash;8</td><td>Metadata, internal linking and markup shipped per template</td></tr>
-        <tr><td>Priority pages</td><td class="qty">Weeks 6&ndash;10</td><td>Category, collection and product family pages written and published</td></tr>
-        <tr><td>Performance &amp; rendering</td><td class="qty">Weeks 7&ndash;10</td><td>Payload, media and crawler rendering brought to agreed thresholds</td></tr>
-        <tr><td>QA, launch &amp; measurement</td><td class="qty">Weeks 9&ndash;12</td><td>Acceptance gates, baseline dashboard and reporting ownership</td></tr>
+        <tr><td>Discovery &amp; access</td><td class="qty">Weeks 1&ndash;2</td><td>Accounts, crawl, baseline and the AI prompt set agreed</td></tr>
+        <tr><td>Crawl &amp; index repair</td><td class="qty">Weeks 1&ndash;4</td><td>robots.txt, sitemaps, canonicals and status codes fixed</td></tr>
+        <tr><td>Foundation on 153 pages</td><td class="qty">Weeks 3&ndash;8</td><td>Metadata, H1s, headings and schema on every page</td></tr>
+        <tr><td>AEO answers live</td><td class="qty">Weeks 4&ndash;8</td><td>First question map and answer content published</td></tr>
+        <tr><td>GEO baseline &amp; citations</td><td class="qty">Weeks 2&ndash;16</td><td>Prompt tracking from week 2; citation work from week 6</td></tr>
+        <tr><td>Store migration</td><td class="qty">Weeks 12&ndash;14</td><td>SEO moved into the new Shopify store at go live</td></tr>
+        <tr><td>Monthly retainers</td><td class="qty">Ongoing</td><td>Plan, delivery and report every month</td></tr>
         <tr class="sect"><td colspan="3">Investment breakdown</td></tr>
-        <tr><td>SEO retainer</td><td class="qty">&#8377;1,49,000 / mo</td><td>Technical, on page and off page search optimisation</td></tr>
-        <tr><td>AEO retainer</td><td class="qty">&#8377;1,35,000 / mo</td><td>Answer engine optimisation for assistant and featured answer surfaces</td></tr>
-        <tr><td>GEO retainer</td><td class="qty">&#8377;1,35,000 / mo</td><td>Generative engine optimisation for AI search results</td></tr>
-        <tr><td>Commitment</td><td class="qty">Monthly</td><td>Each line can be taken independently. Plus GST on all three</td></tr>
-        <tr><td><strong>Timeline note</strong></td><td class="qty hot">Not one time</td><td>The week numbers above are the initial build delivered inside the retainer, not a fixed scope delivery</td></tr>
+        <tr><td>SEO foundation, one time</td><td class="qty">&#8377;1,200 / page</td><td>Metadata, H1s, headings and schema, applied to the 153 counted pages</td></tr>
+        <tr><td>SEO retainer</td><td class="qty hot">&#8377;1,49,000 / mo</td><td>Technical, on page and off page SEO</td></tr>
+        <tr><td>AEO retainer</td><td class="qty hot">&#8377;1,35,000 / mo</td><td>Answer engine optimisation and contextual positioning</td></tr>
+        <tr><td>GEO retainer</td><td class="qty hot">&#8377;1,35,000 / mo</td><td>Generative engine citations and visibility tracking</td></tr>
+        <tr><td>Commitment</td><td class="qty">Monthly</td><td>Each retainer independent. Fees exclude GST</td></tr>
       </tbody>
     </table>
-    <div class="notebar"><b>The critical path is account access, platform change windows and decision turnaround.</b> Index and ranking movement follows recrawling, so the first measurable shift typically lands after launch, not during build.</div>
+    <div class="notebar"><b>Rankings and AI answers move after search engines recrawl,</b> so the first measurable shift usually lands after the foundation ships, not during it.</div>
   </div>
   <div class="pageno">03 / 03</div>
 </section>
